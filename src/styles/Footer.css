@@ -1,0 +1,31 @@
+/* --- FOOTER --- */
+.footer {
+  background-color: #000;
+  color: #9CA3AF; /* gris medio */
+  text-align: center;
+  padding: 2.5rem 1rem;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* --- LINKS --- */
+.footer-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: #9CA3AF;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #A3FF12; /* verde neón */
+}

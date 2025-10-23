@@ -1,0 +1,126 @@
+/* --- NAVBAR BASE --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0558ee;
+  letter-spacing: -1px;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.navbar-links a:hover {
+  color: #0558ee;
+}
+
+/* --- MEGA DROPDOWN --- */
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  animation-fill-mode: forwards;
+}
+
+.mega-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  color: #444;
+}
+
+.mega-content h3 {
+  color: #0558ee;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.mega-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mega-content li {
+  margin-bottom: 0.5rem;
+}
+
+.mega-content a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mega-content a:hover {
+  color: #21e8e6;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.25s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.25s ease-in forwards;
+}

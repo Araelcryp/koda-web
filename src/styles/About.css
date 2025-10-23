@@ -1,0 +1,47 @@
+/* --- ABOUT SECTION --- */
+.about {
+  background-color: white;
+  padding: 6rem 0;
+}
+
+.about-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-text h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #0F172A;
+}
+
+.about-text p {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.about-text .highlight {
+  color: #0558ee;
+  font-weight: 600;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}

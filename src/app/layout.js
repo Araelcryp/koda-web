@@ -7,7 +7,7 @@ import "../styles/Contact.css";
 import "../styles/Footer.css";
 
 export const metadata = {
-  title: "NexusTech - Innovación y Tecnología",
+  title: "Koda - Innovación y Tecnología",
   description: "Desarrollo de software, soluciones web y transformación digital.",
 };
 

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/Navbar.css";
+import { FaCode, FaCloud, FaRobot, FaIndustry } from "react-icons/fa";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -13,46 +14,36 @@ export default function Navbar() {
   };
 
   const handleLeave = () => {
-    // Inicia animación de salida
     setIsClosing(true);
     setTimeout(() => {
       setActiveMenu(null);
       setIsClosing(false);
-    }, 250); // Duración igual a la animación CSS
+    }, 250);
   };
 
   return (
     <nav className="navbar" onMouseLeave={handleLeave}>
-      {/* --- NAV MAIN BAR --- */}
       <div className="navbar-container">
         <div className="navbar-logo">
-          <h1>Koda</h1>
+          <h1>Koda<span>.</span></h1>
         </div>
 
         <ul className="navbar-links">
-          <li>
-            <a
-              href="#servicios"
-              onMouseEnter={() => handleEnter("servicios")}
-            >
-              Servicios
-            </a>
+          <li onMouseEnter={() => handleEnter("servicios")}>
+            <a href="#servicios">Servicios</a>
           </li>
-          <li
-            onMouseEnter={() => handleEnter("industrias")}
-          >
+          <li onMouseEnter={() => handleEnter("industrias")}>
             <a href="#industrias">Industrias</a>
           </li>
           <li onMouseEnter={handleLeave}>
             <a href="#nosotros">Nosotros</a>
           </li>
           <li>
-            <a href="#contacto">Contacto</a>
+            <a href="#contacto" className="contact-link">Contacto</a>
           </li>
         </ul>
       </div>
 
-      {/* --- MEGA DROPDOWN --- */}
       {(activeMenu || isClosing) && (
         <div
           className={`mega-dropdown ${
@@ -63,7 +54,7 @@ export default function Navbar() {
             {activeMenu === "servicios" && (
               <>
                 <div>
-                  <h3>Desarrollo</h3>
+                  <h3><FaCode /> Desarrollo</h3>
                   <ul>
                     <li><a href="#">Software a la Medida</a></li>
                     <li><a href="#">Aplicaciones Web</a></li>
@@ -71,7 +62,7 @@ export default function Navbar() {
                   </ul>
                 </div>
                 <div>
-                  <h3>Infraestructura</h3>
+                  <h3><FaCloud /> Infraestructura</h3>
                   <ul>
                     <li><a href="#">Cloud Computing</a></li>
                     <li><a href="#">Ciberseguridad</a></li>
@@ -79,7 +70,7 @@ export default function Navbar() {
                   </ul>
                 </div>
                 <div>
-                  <h3>Innovación</h3>
+                  <h3><FaRobot /> Innovación</h3>
                   <ul>
                     <li><a href="#">Inteligencia Artificial</a></li>
                     <li><a href="#">Análisis de Datos</a></li>
@@ -92,7 +83,7 @@ export default function Navbar() {
             {activeMenu === "industrias" && (
               <>
                 <div>
-                  <h3>Sectores</h3>
+                  <h3><FaIndustry /> Sectores</h3>
                   <ul>
                     <li><a href="#">Salud</a></li>
                     <li><a href="#">Educación</a></li>
@@ -100,7 +91,7 @@ export default function Navbar() {
                   </ul>
                 </div>
                 <div>
-                  <h3>Tecnología</h3>
+                  <h3><FaCloud /> Tecnología</h3>
                   <ul>
                     <li><a href="#">Blockchain</a></li>
                     <li><a href="#">IoT</a></li>
@@ -108,7 +99,7 @@ export default function Navbar() {
                   </ul>
                 </div>
                 <div>
-                  <h3>Transformación</h3>
+                  <h3><FaRobot /> Transformación</h3>
                   <ul>
                     <li><a href="#">Automatización</a></li>
                     <li><a href="#">Experiencia Digital</a></li>

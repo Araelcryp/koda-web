@@ -1,31 +1,77 @@
-/* --- FOOTER --- */
+/* --- FOOTER BASE --- */
 .footer {
-  background-color: #000;
-  color: #9CA3AF; /* gris medio */
+  background: radial-gradient(circle at top center, #021026 0%, #000 100%);
+  color: #cbd5e1;
+  padding: 4rem 1.5rem 2rem;
   text-align: center;
-  padding: 2.5rem 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.footer p {
-  margin: 0;
-  font-size: 0.95rem;
+/* --- LIGHT GLOW EFFECT --- */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(5, 88, 238, 0.25), transparent 70%);
+  z-index: 0;
+  filter: blur(40px);
 }
 
-/* --- LINKS --- */
+/* --- CONTENT --- */
+.footer-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  background: linear-gradient(90deg, #0558ee, #21e8e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.footer-text {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* --- ICON LINKS --- */
 .footer-links {
-  margin-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .footer-links a {
-  color: #9CA3AF;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
+  color: #94a3b8;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #A3FF12; /* verde neón */
+  color: #21e8e6;
+  transform: translateY(-3px);
+}
+
+/* --- COPYRIGHT --- */
+.footer-copy {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1rem;
 }

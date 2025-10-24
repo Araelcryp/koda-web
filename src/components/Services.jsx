@@ -1,48 +1,49 @@
 import "../styles/Services.css";
+import { FaCode, FaMobileAlt, FaCogs, FaCloud } from "react-icons/fa";
 
 export default function Services() {
   const services = [
     {
+      icon: <FaCode />,
       title: "Desarrollo Web & SaaS",
-      desc: "Creamos plataformas escalables con interfaces atractivas y seguras.",
-      icon: "💻",
+      desc: "Construimos plataformas escalables y seguras, con una experiencia de usuario impecable y un diseño de alto nivel.",
     },
     {
+      icon: <FaMobileAlt />,
       title: "Aplicaciones Móviles",
-      desc: "Apps nativas e híbridas que ofrecen experiencias fluidas y modernas.",
-      icon: "📱",
+      desc: "Apps rápidas, modernas y atractivas para Android y iOS, hechas para crecer junto a tu negocio.",
     },
     {
-      title: "Cloud & DevOps",
-      desc: "Arquitectura, despliegue e infraestructura optimizada en la nube.",
-      icon: "☁️",
+      icon: <FaCogs />,
+      title: "Automatización & APIs",
+      desc: "Optimizamos tus procesos con integraciones inteligentes, automatización de flujos y APIs eficientes.",
     },
     {
-      title: "Ciberseguridad",
-      desc: "Protegemos tus sistemas con auditorías, cifrado y buenas prácticas.",
-      icon: "🔒",
-    },
-    {
-      title: "Data & AI",
-      desc: "Transformamos datos en decisiones inteligentes mediante IA.",
-      icon: "🤖",
+      icon: <FaCloud />,
+      title: "Soluciones en la Nube",
+      desc: "Infraestructura moderna, segura y flexible para desplegar tus aplicaciones sin límites.",
     },
   ];
 
   return (
-    <section id="servicios" className="services">
-      <div className="services-container">
-        <h2>Nuestros Servicios</h2>
-        <div className="services-grid">
-          {services.map((s, i) => (
-            <div key={i} className="service-card">
-              <div className="service-icon">{s.icon}</div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-              <div className="service-accent"></div>
+    <section id="services" className="services">
+      <div className="services-header">
+        <h2 className="section-title">Nuestros Servicios</h2>
+        <p className="section-subtitle">
+          Soluciones tecnológicas que impulsan la innovación, eficiencia y crecimiento de tu empresa.
+        </p>
+      </div>
+
+      <div className="services-grid">
+        {services.map((s, i) => (
+          <div key={i} className="service-card">
+            <div className="icon-wrapper">
+              <span className="icon">{s.icon}</span>
             </div>
-          ))}
-        </div>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

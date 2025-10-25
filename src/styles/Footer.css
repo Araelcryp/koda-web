@@ -2,76 +2,145 @@
 .footer {
   background: radial-gradient(circle at top center, #021026 0%, #000 100%);
   color: #cbd5e1;
-  padding: 4rem 1.5rem 2rem;
-  text-align: center;
+  padding: 5rem 1.5rem 2rem;
   position: relative;
   overflow: hidden;
 }
 
-/* --- LIGHT GLOW EFFECT --- */
+/* --- LIGHT GLOW --- */
 .footer::before {
   content: "";
   position: absolute;
-  top: -50px;
+  top: -80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   background: radial-gradient(circle, rgba(5, 88, 238, 0.25), transparent 70%);
+  filter: blur(50px);
   z-index: 0;
-  filter: blur(40px);
 }
 
-/* --- CONTENT --- */
+/* --- CONTAINER --- */
 .footer-container {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 3rem;
 }
 
+/* --- BRAND --- */
 .footer-logo {
   font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.03em;
   background: linear-gradient(90deg, #0558ee, #21e8e6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
 }
 
-.footer-text {
+.footer-brand p {
   color: #94a3b8;
-  font-size: 1rem;
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
-
-/* --- ICON LINKS --- */
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
+  max-width: 250px;
 }
 
-.footer-links a {
+/* --- SOCIALS --- */
+.footer-socials {
+  display: flex;
+  gap: 3rem;
+}
+
+.footer-socials a {
   color: #94a3b8;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 
-.footer-links a:hover {
+.footer-socials a:hover {
   color: #21e8e6;
   transform: translateY(-3px);
 }
 
-/* --- COPYRIGHT --- */
-.footer-copy {
-  font-size: 0.9rem;
-  color: #64748b;
-  margin-top: 1rem;
+/* --- COLUMN TITLES --- */
+.footer-col h4 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* --- LINKS --- */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: #00b4ff;
+  padding-left: 4px;
+}
+
+/* --- CONTACT INFO --- */
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.footer-contact svg {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+/* --- BOTTOM BAR --- */
+.footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 1rem;
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer-contact li {
+    justify-content: center;
+  }
+
+  .footer-brand p {
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
 }

@@ -18,15 +18,10 @@ export default function Services() {
       title: "Automatización & APIs",
       desc: "Optimizamos tus procesos con integraciones inteligentes, automatización de flujos y APIs eficientes.",
     },
-    {
-      icon: <FaCloud />,
-      title: "Soluciones en la Nube",
-      desc: "Infraestructura moderna, segura y flexible para desplegar tus aplicaciones sin límites.",
-    },
   ];
 
   return (
-    <section id="services" className="services">
+    <section id="servicios" className="services">
       <div className="services-header">
         <h2 className="section-title">Nuestros Servicios</h2>
         <p className="section-subtitle">

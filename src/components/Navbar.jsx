@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import "../styles/Navbar.css";
-import { FaCode, FaCloud, FaRobot, FaIndustry, FaStore, FaAppleAlt, FaApple, FaAppStore, FaAtom } from "react-icons/fa";
+import {
+  FaCode,
+  FaCloud,
+  FaRobot,
+  FaIndustry,
+  FaAtom
+} from "react-icons/fa";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -25,19 +31,12 @@ export default function Navbar() {
     <nav className="navbar" onMouseLeave={handleLeave}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <h1>Koda<span>.</span></h1>
+          <h1>
+            Koda<span>.</span>
+          </h1>
         </div>
 
-        <div
-      className={`menu-toggle ${activeMenu ? "active" : ""}`}
-      onClick={() => setActiveMenu(activeMenu ? null : "menu")}
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-        </div>
-
-        <ul className={`navbar-links ${activeMenu === "menu" ? "active" : ""}`}>
+        <ul className="navbar-links">
           <li onMouseEnter={() => handleEnter("servicios")}>
             <a href="#servicios">Servicios</a>
           </li>
@@ -48,7 +47,9 @@ export default function Navbar() {
             <a href="#nosotros">Nosotros</a>
           </li>
           <li>
-            <a href="#contacto" className="contact-link">Contacto</a>
+            <a href="#contacto" className="contact-link">
+              Contacto
+            </a>
           </li>
         </ul>
       </div>

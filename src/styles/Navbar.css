@@ -175,112 +175,90 @@
   animation: slideUp 0.25s ease-in forwards;
 }
 
-/* --- RESPONSIVE NAVBAR --- */
+/* --- RESPONSIVE NAVBAR COMPACTO --- */
 @media (max-width: 900px) {
   .navbar-container {
-    padding: 1rem;
+    padding: 0.8rem 1rem;
   }
 
-  /* Reorganizamos el contenedor principal */
+  .navbar-logo h1 {
+    font-size: 1.6rem;
+  }
+
   .navbar-links {
-    position: fixed;
-    top: 70px;
-    right: -100%;
-    width: 75%;
-    height: 100vh;
-    background: white;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 2rem;
-    box-shadow: -4px 0 25px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease-in-out;
-  }
-
-  /* Mostramos menú cuando esté activo */
-  .navbar-links.active {
-    right: 0;
-  }
-
-  .navbar-links li {
-    width: 100%;
+    gap: 1rem;
   }
 
   .navbar-links a {
-    font-size: 1.1rem;
-    display: block;
-    width: 100%;
+    font-size: 0.95rem;
   }
 
-  /* Ocultamos mega dropdown en móviles */
+  .contact-link {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
   .mega-dropdown {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-    border: none;
-    animation: none;
-    padding: 1rem 0;
+    top: 100%;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   }
 
   .mega-content {
-    display: flex;
-    flex-direction: column;
+    padding: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    padding: 1rem;
   }
 
   .mega-content h3 {
     font-size: 1rem;
+    margin-bottom: 0.4rem;
   }
 
   .mega-content a {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
-  /* --- HAMBURGER MENU BUTTON --- */
   .menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    z-index: 101;
-  }
-
-  .menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background: var(--color-text-dark);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-  }
-
-  /* Animación al abrir */
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    display: none;
   }
 }
 
-/* Asegurar que los menús grandes no se corten en pantallas pequeñas */
+/* --- EXTRA COMPACTO --- */
 @media (max-width: 600px) {
+  .navbar-container {
+    padding: 0.6rem 0.8rem;
+  }
+
   .navbar-logo h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .navbar-links {
+    gap: 0.8rem;
+  }
+
+  .navbar-links a {
+    font-size: 0.85rem;
   }
 
   .contact-link {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.9rem;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+
+  .mega-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .mega-content h3 {
+    font-size: 0.95rem;
+  }
+
+  .mega-content a {
+    font-size: 0.85rem;
   }
 }
-
-

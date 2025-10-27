@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Navbar.css";
 import {
   FaCode,
@@ -13,18 +13,49 @@ import {
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Detectar tamaño de pantalla
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Mostrar dropdown
   const handleEnter = (menu) => {
+    if (isMobile) return; // En móvil no se usa hover
     setIsClosing(false);
     setActiveMenu(menu);
   };
 
+  // Ocultar dropdown
   const handleLeave = () => {
+    if (isMobile) return;
     setIsClosing(true);
     setTimeout(() => {
       setActiveMenu(null);
       setIsClosing(false);
     }, 250);
+  };
+
+  // Click/tap en móviles
+  const handleClick = (menu) => {
+    if (!isMobile) return; // Solo aplica en móvil
+    if (activeMenu === menu) {
+      // Si vuelves a tocar el mismo → se cierra
+      setActiveMenu(null);
+    } else {
+      setActiveMenu(menu);
+    }
+  };
+
+  // Cerrar si se toca contacto
+  const handleContactClick = () => {
+    if (isMobile) setActiveMenu(null);
   };
 
   return (
@@ -37,17 +68,33 @@ export default function Navbar() {
         </div>
 
         <ul className="navbar-links">
-          <li onMouseEnter={() => handleEnter("servicios")}>
+          <li
+            onMouseEnter={() => handleEnter("servicios")}
+            onClick={() => handleClick("servicios")}
+          >
             <a href="#servicios">Servicios</a>
           </li>
-          <li onMouseEnter={() => handleEnter("industrias")}>
+
+          <li
+            onMouseEnter={() => handleEnter("industrias")}
+            onClick={() => handleClick("industrias")}
+          >
             <a href="#industrias">Industrias</a>
           </li>
-          <li onMouseEnter={handleLeave}>
-            <a href="#nosotros">Nosotros</a>
-          </li>
+
+          {/* “Nosotros” solo visible en escritorio */}
+          {!isMobile && (
+            <li onMouseEnter={handleLeave}>
+              <a href="#nosotros">Nosotros</a>
+            </li>
+          )}
+
           <li>
-            <a href="#contacto" className="contact-link">
+            <a
+              href="#contacto"
+              className="contact-link"
+              onClick={handleContactClick}
+            >
               Contacto
             </a>
           </li>

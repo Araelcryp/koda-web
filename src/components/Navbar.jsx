@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import "../styles/Navbar.css";
-import { FaCode, FaCloud, FaRobot, FaIndustry } from "react-icons/fa";
+import { FaCode, FaCloud, FaRobot, FaIndustry, FaStore, FaAppleAlt, FaApple, FaAppStore, FaAtom } from "react-icons/fa";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -28,7 +28,16 @@ export default function Navbar() {
           <h1>Koda<span>.</span></h1>
         </div>
 
-        <ul className="navbar-links">
+        <div
+      className={`menu-toggle ${activeMenu ? "active" : ""}`}
+      onClick={() => setActiveMenu(activeMenu ? null : "menu")}
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+        </div>
+
+        <ul className={`navbar-links ${activeMenu === "menu" ? "active" : ""}`}>
           <li onMouseEnter={() => handleEnter("servicios")}>
             <a href="#servicios">Servicios</a>
           </li>
@@ -57,7 +66,7 @@ export default function Navbar() {
                   <h3><FaCode /> Desarrollo</h3>
                   <ul>
                     <li><a href="#">Software a la Medida</a></li>
-                    <li><a href="#">Aplicaciones Web</a></li>
+                    <li><a href="#">Sitios Web</a></li>
                     <li><a href="#">Aplicaciones Móviles</a></li>
                   </ul>
                 </div>
@@ -87,15 +96,15 @@ export default function Navbar() {
                   <ul>
                     <li><a href="#">Salud</a></li>
                     <li><a href="#">Educación</a></li>
-                    <li><a href="#">Finanzas</a></li>
+                    <li><a href="#">Construcción</a></li>
                   </ul>
                 </div>
                 <div>
-                  <h3><FaCloud /> Tecnología</h3>
+                  <h3><FaAtom /> Aplicaciones</h3>
                   <ul>
-                    <li><a href="#">Blockchain</a></li>
-                    <li><a href="#">IoT</a></li>
-                    <li><a href="#">Realidad Aumentada</a></li>
+                    <li><a href="#">Android</a></li>
+                    <li><a href="#">iOS</a></li>
+                    <li><a href="#">Aplicaciones web</a></li>
                   </ul>
                 </div>
                 <div>

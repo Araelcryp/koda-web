@@ -14,9 +14,9 @@ export default function Footer() {
           </p>
 
           <div className="footer-socials">
-            <a href="#" aria-label="Facebook"><FaFacebookF /></a>
-            <a href="#" aria-label="Instagram"><FaInstagram /></a>
-            <a href="#" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href="https://www.facebook.com/profile.php?id=61582350671322" target="_blank" aria-label="Facebook"><FaFacebookF /></a>
+            <a href="https://www.instagram.com/koda.develop/" target="_blank" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://wa.me/524191202525" target="_blank" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
         </div>
 

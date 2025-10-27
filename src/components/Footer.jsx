@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="#">Política de Privacidad</a></li>
+            <li><a href="/politica-de-privacidad">Política de Privacidad</a></li>
             <li><a href="#">Términos de Servicio</a></li>
             <li><a href="#">Aviso de Cookies</a></li>
           </ul>
@@ -46,7 +46,7 @@ export default function Footer() {
           <h4>Contáctanos</h4>
           <ul className="footer-contact">
             <li><FaMapMarkerAlt /> San José Iturbide, GTO.</li>
-            <li><FaPhone /> +52 442-846-9631</li>
+            <li><FaPhone /> +52 419-120-2525</li>
             <li><FaEnvelope /> koda.connect.io@gmail.com</li>
           </ul>
         </div>

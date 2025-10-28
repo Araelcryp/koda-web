@@ -139,7 +139,7 @@
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .hero {
-    padding: 5rem 1.5rem;
+    padding: 10rem 1.5rem;
   }
   .hero-text h1 {
     font-size: 2.4rem;

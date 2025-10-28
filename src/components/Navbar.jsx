@@ -2,13 +2,7 @@
 
 import { useState, useEffect } from "react";
 import "../styles/Navbar.css";
-import {
-  FaCode,
-  FaCloud,
-  FaRobot,
-  FaIndustry,
-  FaAtom
-} from "react-icons/fa";
+import { FaCode, FaCloud, FaRobot, FaIndustry, FaAtom } from "react-icons/fa";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -25,14 +19,14 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Mostrar dropdown
+  // Mostrar dropdown (desktop)
   const handleEnter = (menu) => {
-    if (isMobile) return; // En móvil no se usa hover
+    if (isMobile) return;
     setIsClosing(false);
     setActiveMenu(menu);
   };
 
-  // Ocultar dropdown
+  // Ocultar dropdown (desktop)
   const handleLeave = () => {
     if (isMobile) return;
     setIsClosing(true);
@@ -44,18 +38,30 @@ export default function Navbar() {
 
   // Click/tap en móviles
   const handleClick = (menu) => {
-    if (!isMobile) return; // Solo aplica en móvil
+    if (!isMobile) return;
+
     if (activeMenu === menu) {
-      // Si vuelves a tocar el mismo → se cierra
-      setActiveMenu(null);
+      // Si vuelve a tocar el mismo → animar cierre
+      setIsClosing(true);
+      setTimeout(() => {
+        setActiveMenu(null);
+        setIsClosing(false);
+      }, 250);
     } else {
+      setIsClosing(false);
       setActiveMenu(menu);
     }
   };
 
-  // Cerrar si se toca contacto
+  // Cerrar si se toca contacto (en móvil)
   const handleContactClick = () => {
-    if (isMobile) setActiveMenu(null);
+    if (isMobile) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setActiveMenu(null);
+        setIsClosing(false);
+      }, 250);
+    }
   };
 
   return (
@@ -82,7 +88,6 @@ export default function Navbar() {
             <a href="#industrias">Industrias</a>
           </li>
 
-          {/* “Nosotros” solo visible en escritorio */}
           {!isMobile && (
             <li onMouseEnter={handleLeave}>
               <a href="#nosotros">Nosotros</a>

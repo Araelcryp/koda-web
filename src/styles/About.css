@@ -1,6 +1,6 @@
 /* --- ABOUT SECTION --- */
 .about {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  background: #f8fbff;
   padding: 7rem 0;
   overflow: hidden;
 }
@@ -62,7 +62,7 @@
 
 .about-image img {
   width: 100%;
-  border-radius: 1rem;
+  border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   object-fit: cover;
   transform: scale(1);

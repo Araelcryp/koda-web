@@ -1,6 +1,7 @@
 import "./globals.css";
 import "../styles/Navbar.css";
 import "../styles/Hero.css";
+import "../styles/Features.css";
 import "../styles/About.css";
 import "../styles/Services.css";
 import "../styles/Contact.css";

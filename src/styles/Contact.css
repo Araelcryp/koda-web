@@ -24,17 +24,26 @@
   max-width: 850px;
   margin: 0 auto;
   text-align: center;
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   padding: 4rem 3rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 1.2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.contact-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(5, 88, 238, 0.1);
 }
 
 .contact-container h2 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #0f172a;
+  background: linear-gradient(90deg, #0558ee, #00b4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .contact-container p {
@@ -45,7 +54,7 @@
   margin: 0 auto 2.5rem;
 }
 
-.contact-container .highlight {
+.highlight {
   color: #0558ee;
   font-weight: 600;
 }
@@ -80,6 +89,39 @@
   resize: none;
 }
 
+/* Estilos para el elemento <select> (el campo visible) */
+.contact-form select {
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  padding: 1rem 1.2rem;
+  border-radius: 0.6rem;
+  font-size: 1rem; /* Importante para el tamaño del texto */
+  transition: all 0.3s ease;
+  outline: none;
+  cursor: pointer;
+  /* (Opcional) Remueve la flecha nativa para un diseño más limpio */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Estilos de hover para el <select> */
+.contact-form select:hover {
+  border-color: #0558ee;
+  box-shadow: 0 0 0 3px rgba(5, 88, 238, 0.1);
+}
+
+/* Estilos para las <option> */
+/* Solo se respetarán tamaño de fuente, color y familia de fuente. */
+/* Se eliminan estilos visuales (borde, fondo, padding) que no funcionan bien. */
+.contact-form option {
+  font-size: 1rem;
+  /* (Opcional) Puedes establecer un color de texto si lo necesitas */
+  /* color: #333; */
+}
+
+
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #0558ee;
@@ -90,6 +132,7 @@
 .contact-form button {
   align-self: center;
   background: linear-gradient(90deg, #0558ee, #00b4ff);
+  background-size: 200% 100%;
   color: #fff;
   border: none;
   padding: 0.9rem 3rem;
@@ -97,22 +140,201 @@
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .contact-form button:hover {
+  background-position: 100% 0;
+  box-shadow: 0 0 15px rgba(5, 88, 238, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(5, 88, 238, 0.25);
 }
 
 /* --- ANIMATIONS --- */
-.fade-in {
+.fade-up {
   opacity: 0;
   transform: translateY(25px);
   transition: all 0.8s ease-out;
 }
 
-.fade-in.visible {
+.fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.delay-2 {
+  transition-delay: 0.4s;
+}
+
+.delay-3 {
+  transition-delay: 0.6s;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 500px) {
+  .contact-container {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact-container h2 {
+    font-size: 2rem;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+}
+
+/* --- MODAL --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  animation: popUp 0.4s ease;
+}
+
+.modal p {
+  color: #0f172a;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal button {
+  background: linear-gradient(90deg, #0558ee, #00b4ff);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal button:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(5, 88, 238, 0.3);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* --- REDES SOCIALES --- */
+
+.social p {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem; 
+}
+
+/* --- Base del Enlace Social (Minimalista y Sin Fondo) --- */
+.social-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    text-decoration: none;
+    
+    /* Diseño Base */
+    border-radius: 12px;
+    border: 2px solid transparent;
+    box-shadow: none;
+    color: #333;
+    
+    /* Transiciones y Transformaciones */
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                box-shadow 0.3s ease-out,
+                border-color 0.3s ease-out;
+}
+
+/* --- Estado Hover (Interacción) --- */
+.social-link:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos de Marca (Color del Icono) --- */
+.social-link.whatsapp {
+    color: #25d366; 
+}
+
+.social-link.facebook {
+    color: #1877f2;
+}
+
+.social-link.instagram {
+    color: #dc2743; 
+}
+
+.social-link:focus-visible {
+    outline: none;
+    border: 2px solid rgba(5, 88, 238, 0.8);
+    box-shadow: 0 4px 15px rgba(5, 88, 238, 0.2); 
+    transform: translateY(-4px) scale(1.04);
+}
+
+.social-link.whatsapp:focus-visible {
+    border-color: #25d366;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+}
+
+.social-link.facebook:focus-visible {
+    border-color: #1877f2;
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.2);
+}
+
+.social-link.instagram:focus-visible {
+    border-color: #dd2a7b;
+    box-shadow: 0 4px 15px rgba(218, 68, 120, 0.2);
+}
+
+
+/* responsive: botones más grandes en móvil si hace falta */
+@media (max-width: 420px) {
+  .social-link {
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
+  }
+}
+
+

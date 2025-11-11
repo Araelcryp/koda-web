@@ -67,11 +67,13 @@ export default function Navbar() {
   return (
     <nav className="navbar" onMouseLeave={handleLeave}>
       <div className="navbar-container">
-        <div className="navbar-logo">
-          <h1>
-            Koda<span>.</span>
-          </h1>
-        </div>
+        <a href="https://www.koda.com.mx">
+          <div className="navbar-logo">
+              <h1>
+                Koda<span>.</span>
+              </h1>
+          </div>
+        </a>
 
         <ul className="navbar-links">
           <li

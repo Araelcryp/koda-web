@@ -2,9 +2,16 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useRouter } from "next/navigation"; // Importamos useRouter
 import "../politica-de-privacidad/PrivacyPolicy.css";
 
 export default function PoliticaDePrivacidad() {
+  const router = useRouter(); // Usamos useRouter para manejar la navegación
+
+  const handleBackClick = () => {
+    router.back(); // Esto permite al usuario regresar a la página anterior
+  };
+
   return (
     <>
       <Navbar />
@@ -63,8 +70,15 @@ export default function PoliticaDePrivacidad() {
           <p className="privacy-update">
             Última actualización: <strong>Octubre 2025</strong>
           </p>
+
+          {/* Botón de regreso */}
+          <button className="back-button" onClick={handleBackClick}>
+            Regresar
+          </button>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }

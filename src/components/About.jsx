@@ -40,7 +40,7 @@ export default function About() {
 
         <div className="about-image fade-in">
           <img
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80"
+            src="https://images.pexels.com/photos/326501/pexels-photo-326501.jpeg"
             alt="Equipo Koda colaborando en desarrollo de software"
           />
         </div>

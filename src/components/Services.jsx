@@ -23,7 +23,7 @@ export default function Services() {
   return (
     <section id="servicios" className="services">
       <div className="services-header">
-        <h2 className="section-title">Nuestros Servicios</h2>
+        <h2 className="section-title">Servicios</h2>
         <p className="section-subtitle">
           Soluciones tecnológicas que impulsan la innovación, eficiencia y crecimiento de tu empresa.
         </p>
@@ -43,3 +43,5 @@ export default function Services() {
     </section>
   );
 }
+
+

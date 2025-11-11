@@ -8,62 +8,66 @@
 
 /* --- HERO --- */
 .hero {
-  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
-  color: var(--color-dark);
-  padding: 10rem 1.5rem;
-  overflow: hidden;
   position: relative;
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 10rem 1.5rem;
   text-align: center;
-}
-
-@media (min-width: 900px) {
-  .hero-content {
-    flex-direction: row;
-    text-align: left;
-    justify-content: space-between;
-  }
-}
-
-/* --- TEXT SECTION --- */
-.hero-text {
-  flex: 1.2;
-  z-index: 2;
-}
-
-.hero-text h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
   color: var(--color-dark);
-  line-height: 1.1;
+  overflow: hidden;
+  background: radial-gradient(circle at top center, #021026 0%, #000 100%);
+}
+
+/* Fondo degradado o imagen opcional */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top center, #021026 0%, #000 100%);
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- TEXT --- */
+.hero-inner h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  color: var(--color-light);
+  line-height: 1.2;
   margin-bottom: 1.25rem;
 }
 
-.hero-text .highlight {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+.hero-inner .highlight {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-primary));
+  background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+
 }
 
-.hero-text p {
+.hero-inner p {
   font-size: 1.2rem;
-  color: var(--color-gray);
+  color: var(--color-light);
   margin-bottom: 2.5rem;
-  max-width: 550px;
   line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* --- BUTTON --- */
+/* --- BUTTONS --- */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .btn-primary {
-  display: inline-block;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   color: #fff;
   padding: 1rem 2.5rem;
@@ -79,45 +83,24 @@
   box-shadow: 0 12px 30px rgba(0, 91, 187, 0.3);
 }
 
-/* --- IMAGE --- */
-.hero-image {
-  flex: 1;
-  position: relative;
-  display: flex;
-  justify-content: center;
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--color-light);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 91, 187, 0.2);
 }
 
-.image-frame {
-  position: relative;
-  width: 100%;
-  max-width: 460px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
-  transition: transform 0.6s ease;
-}
-
-.image-frame:hover {
-  transform: scale(1.03);
-}
-
-.image-frame img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 24px;
-  transition: transform 0.6s ease;
-}
-
-.image-frame:hover img {
-  transform: scale(1.05);
-}
-
-.image-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(0, 123, 255, 0.1), transparent 70%);
-  pointer-events: none;
+.btn-secondary:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 30px rgba(0, 91, 187, 0.3);
 }
 
 /* --- ANIMATIONS --- */
@@ -134,20 +117,16 @@
 
 .delay-0 { animation-delay: 0.2s; }
 .delay-1 { animation-delay: 0.4s; }
-.delay-2 { animation-delay: 0.6s; }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .hero {
-    padding: 10rem 1.5rem;
+    padding: 8rem 1rem;
   }
-  .hero-text h1 {
+  .hero-inner h1 {
     font-size: 2.4rem;
   }
-  .hero-text p {
+  .hero-inner p {
     font-size: 1rem;
-  }
-  .image-frame {
-    max-width: 90%;
   }
 }
